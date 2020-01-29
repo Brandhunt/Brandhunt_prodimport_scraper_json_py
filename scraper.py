@@ -146,7 +146,7 @@ def getvalbyjsonselector(selectorial, dictorial):
         #print(selectorial)
         value = []
         selectorial = selectorial.split('>>>')
-        #for sel in selectorial: print('SEL ELEMENT:' + sel)
+        for sel in selectorial: print('SEL ELEMENT:' + sel)
         #print('LENGTH OF SELECTOR: ' + str(len(selectorial)))
         if len(selectorial) == 1:
             if selectorial[0] == '[i]':
