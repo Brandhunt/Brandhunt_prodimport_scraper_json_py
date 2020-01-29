@@ -523,11 +523,14 @@ for scrapsite in jsonscrapsites:
                                         prod_brand = domainmisc_array[i]
                                 if domainmisc_array[(i-1)] == 'pa_color':
                                     if len(domainmisc_array[i]) > 0:
-                                        count = 0
-                                        prod_colors = []
-                                        for el in domainmisc_array[i]:  
-                                            prod_colors.append(domainmisc_array[i][count])
-                                            count = count + 1
+                                        if type(domainmisc_array[i]) == str:
+                                            prod_colors.append(domainmisc_array[i])
+                                        else:
+                                            count = 0
+                                            prod_colors = []
+                                            for el in domainmisc_array[i]:  
+                                                prod_colors.append(domainmisc_array[i][count])
+                                                count = count + 1
                                 if domainmisc_array[(i-1)] == 'pa_category':
                                     if len(domainmisc_array[i]) > 0:
                                         prodcat_array = []
