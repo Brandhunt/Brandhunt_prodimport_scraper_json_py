@@ -157,6 +157,8 @@ def getvalbyjsonselector(selectorial, dictorial):
                 return dictorial[selectorial[0][1:2]]
             else:
                 #print('THREE')
+                if type(dictorial) == dict:
+                    for key, val in dictorial.items(): print(key +  ' : ' + val)
                 return dictorial[selectorial[0]]
         else:
             #print('FOUR')
