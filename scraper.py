@@ -383,6 +383,7 @@ for scrapsite in jsonscrapsites:
                     if product_search_result:
                         print("Found product already existing, moving onto next product!");
                         continue
+                print('WESHOULDBEHERE')
                 # >>> GET THE PRICE <<< #
                 prod_price_elements = ''
                 prod_price = ''
@@ -392,7 +393,7 @@ for scrapsite in jsonscrapsites:
                         scrapsite['scrapefield']['priceselector'].replace('[multiple],', '')
                         prod_price_elements = getvalbyjsonselector(scrapsite['scrapefield']['priceselector'], prod_el)
                         for el in prod_price_elements:
-                            prod_price = prod_price + el.text + ' '
+                            prod_price = prod_price + el + ' '
                         if prod_price != '':
                             prod_price = re.sub(r'([^a-zA-Z]\w+\%+)', '', prod_price)
                     else:
