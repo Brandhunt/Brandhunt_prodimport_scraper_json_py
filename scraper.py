@@ -558,7 +558,7 @@ for scrapsite in jsonscrapsites:
                                     domainmisc_array[i] = str(domainmisc_array[i])
                         scrapedmiscitems = json.dumps(domainmisc_array)
                         print('DOMAINMISC:')
-                        for d in domainmisc_array: print d
+                        for d in domainmisc_array: print(d)
                     except:
                         print(traceback.format_exc())
                 # >>> GET THE PRODUCT LOGO URL(S) - IF SUCH EXISTS <<< #
