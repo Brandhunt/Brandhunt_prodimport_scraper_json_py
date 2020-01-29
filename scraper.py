@@ -143,7 +143,7 @@ def doesscrapeurlexist(scrapesitelist, scrapeurl):
 # *** --- Get value from JSON file by selector --- *** #
 def getvalbyjsonselector(selectorial, dictorial):
     try:
-        print(selectorial)
+        #print(selectorial)
         value = []
         selectorial = selectorial.split('>>>')
         #print('DICTTYPE:' + str(type(dictorial)))
@@ -316,6 +316,7 @@ for scrapsite in jsonscrapsites:
                         print('No product URL found. Either broken config or current setup needs change')
                 except:
                     print(traceback.format_exc())
+                print('PROD URL: ' + prod_url)
                 # >>> GET THE SCRAPED PRODUCT TITLE <<< #
                 prod_title = ''
                 try:
@@ -334,6 +335,7 @@ for scrapsite in jsonscrapsites:
                         prod_title = re.sub('\s+', ' ', prod_title)
                 except:
                     print(traceback.format_exc())
+                print('PROD TITLE: ' + prod_title)
                 # >>> CHECK IF LATEST ONLY <<< #
                 # --> If the url should be checked for the latest products only(No full import),
                 # --> then make sure to stop importing the products from the current URL when
@@ -409,6 +411,7 @@ for scrapsite in jsonscrapsites:
                     #print('FINALPRICE:' + prod_price)
                 except:
                     print(traceback.format_exc())
+                print('FINALPRICE:' + prod_price)
                 # >>> GET THE SALES PRICE <<< #
                 prod_salesprice_elements = ''
                 prod_salesprice = ''
@@ -431,6 +434,7 @@ for scrapsite in jsonscrapsites:
                             prod_salesprice = prod_salesprice.replace('\,', '')
                     except:
                         print(traceback.format_exc())
+                print('FINALSALESPRICE:' + prod_salesprice)
                 # >>> CHECK IF BRAND IS FOUND IN NAME <<< #
                 prod_brand = ''
                 try:
