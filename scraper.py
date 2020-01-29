@@ -299,7 +299,7 @@ for scrapsite in jsonscrapsites:
                 prod_url = ''
                 try:
                     scrapsite['scrapefield']['urlselector'] = scrapsite['scrapefield']['urlselector'].encode().decode("unicode-escape")
-                    product_urL = getvalbyjsonselector(scrapsite['scrapefield']['urlselector'], jsonmain)
+                    product_urL = getvalbyjsonselector(scrapsite['scrapefield']['urlselector'], prod_el)
                     if product_urL is not None:
                         new_prod_url = urljoin(scrapsite['scrapeurl'], product_urL)
                         if prod_url != new_prod_url:
@@ -319,11 +319,11 @@ for scrapsite in jsonscrapsites:
                     scrapsite['scrapefield']['titleselector'] = scrapsite['scrapefield']['titleselector'].encode().decode("unicode-escape")
                     if scrapsite['scrapefield']['titleselector'].find('[multiple],') != -1:
                         scrapsite['scrapefield']['titleselector'].replace('[multiple],', '')
-                        producttitleparts = getvalbyjsonselector(scrapsite['scrapefield']['titleselector'], jsonmain)
+                        producttitleparts = getvalbyjsonselector(scrapsite['scrapefield']['titleselector'], prod_el)
                         for el in producttitleparts:
                             prod_title = prod_title + el + ' '
                     else:
-                        title = getvalbyjsonselector(scrapsite['scrapefield']['titleselector'], jsonmain)
+                        title = getvalbyjsonselector(scrapsite['scrapefield']['titleselector'], prod_el)
                         prod_title = title
                     if prod_title.strip() == '':
                         print('Cannot find the product title after trimming!')
@@ -383,13 +383,13 @@ for scrapsite in jsonscrapsites:
                     scrapsite['scrapefield']['priceselector'] = scrapsite['scrapefield']['priceselector'].encode().decode("unicode-escape")
                     if scrapsite['scrapefield']['priceselector'].find('[multiple],') != -1:
                         scrapsite['scrapefield']['priceselector'].replace('[multiple],', '')
-                        prod_price_elements = getvalbyjsonselector(scrapsite['scrapefield']['priceselector'], jsonmain)
+                        prod_price_elements = getvalbyjsonselector(scrapsite['scrapefield']['priceselector'], prod_el)
                         for el in prod_price_elements:
                             prod_price = prod_price + el.text + ' '
                         if prod_price != '':
                             prod_price = re.sub(r'([^a-zA-Z]\w+\%+)', '', prod_price)
                     else:
-                        prod_price = getvalbyjsonselector(scrapsite['scrapefield']['priceselector'], jsonmain)
+                        prod_price = getvalbyjsonselector(scrapsite['scrapefield']['priceselector'], prod_el)
                         if prod_price is not None:
                             if any(char.isdigit() for char in prod_price):
                                 prod_price = re.sub(r'([^a-zA-Z]\w+\%+)', '', prod_price)
@@ -412,7 +412,7 @@ for scrapsite in jsonscrapsites:
                 if scrapsite['scrapefield']['salespriceselector']:
                     try:
                         scrapsite['scrapefield']['salespriceselector'] = scrapsite['scrapefield']['salespriceselector'].encode().decode("unicode-escape")
-                        prod_salesprice_elements = getvalbyjsonselector(scrapsite['scrapefield']['salespriceselector'], jsonmain)  
+                        prod_salesprice_elements = getvalbyjsonselector(scrapsite['scrapefield']['salespriceselector'], prod_el)  
                         if prod_salesprice_elements:
                             if any(char.isdigit() for char in prod_salesprice_elements):
                                 prod_salesprice = prod_salesprice_elements
@@ -496,7 +496,7 @@ for scrapsite in jsonscrapsites:
                             #if domainmisc_array[(i-1)] == 'pa_size':
                             #    print('TOSCRAPE: ' + domainmisc_array[i].strip().encode().decode("unicode-escape"))
                             #    print(prod_html)
-                            domainmisc_array[i] = getvalbyjsonselector(domainmisc_array[i].strip().encode().decode("unicode-escape"), jsonmain)
+                            domainmisc_array[i] = getvalbyjsonselector(domainmisc_array[i].strip().encode().decode("unicode-escape"), prod_el)
                             if domainmisc_array[i]:
                                 # --- Has the product got any special sale price applied? --- #
                                 if domainmisc_array[(i-1)] == 'before_sale_price':
@@ -565,7 +565,7 @@ for scrapsite in jsonscrapsites:
                 if scrapsite['scrapefield']['productlogoselector']:
                     try:
                         scrapsite['scrapefield']['productlogoselector'] = scrapsite['scrapefield']['productlogoselector'].encode().decode("unicode-escape")
-                        prodlog_image_elements = getvalbyjsonselector(scrapsite['scrapefield']['productlogoselector'], jsonmain)
+                        prodlog_image_elements = getvalbyjsonselector(scrapsite['scrapefield']['productlogoselector'], prod_el)
                         if prodlog_image_elements:
                             prodlog_image_urls = prodlog_image_elements
                             if len(prodlog_image_urls) > 0:
@@ -599,7 +599,7 @@ for scrapsite in jsonscrapsites:
                 if scrapsite['scrapefield']['imageselector'] and len(scrapsite['scrapefield']['imageselector']):
                     try:
                         scrapsite['scrapefield']['imageselector'] = scrapsite['scrapefield']['imageselector'].encode().decode("unicode-escape")
-                        image_elements = getvalbyjsonselector(scrapsite['scrapefield']['imageselector'], jsonmain)
+                        image_elements = getvalbyjsonselector(scrapsite['scrapefield']['imageselector'], prod_el)
                         image_urls = image_elements
                         #print('PRE-IMAGE URLS: ')
                         #for img in image_urls: print(image_urls[img])
