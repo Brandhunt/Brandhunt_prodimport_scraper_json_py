@@ -441,6 +441,7 @@ for scrapsite in jsonscrapsites:
                             break
                 except:
                     print(traceback.format_exc())            
+                print('PREV_BRAND: ' + prod_brand)
                 # >>> CHECK IF DOMAIN NAME SHOULD BE USED AS PROD. BRAND <<< #
                 if scrapsite['scrapefield']['domainname']:
                     try:
@@ -556,8 +557,8 @@ for scrapsite in jsonscrapsites:
                                 else:
                                     domainmisc_array[i] = str(domainmisc_array[i])
                         scrapedmiscitems = json.dumps(domainmisc_array)
-                        #print('DOMAINMISC:')
-                        #for d in domainmisc_array: print d
+                        print('DOMAINMISC:')
+                        for d in domainmisc_array: print d
                     except:
                         print(traceback.format_exc())
                 # >>> GET THE PRODUCT LOGO URL(S) - IF SUCH EXISTS <<< #
@@ -587,8 +588,8 @@ for scrapsite in jsonscrapsites:
                             productlogourls = prodlog_image_urls
                         else:
                             print("No product logo URLs could be found for product with title " + prod_title + "!")
-                        #print('PRODUCTLOGOS:')
-                        #for p in prodlog_image_urls: print(p)
+                        print('PRODUCTLOGOS:')
+                        for p in prodlog_image_urls: print(p)
                         #print('PRODUCTLOGOURL:' + productlogourl)
                     except:
                         print(traceback.format_exc())
@@ -634,8 +635,8 @@ for scrapsite in jsonscrapsites:
                         #for img in image_elements: print (img)
                         #print('IMAGE URLS:')
                         #for img in image_urls: print (img)
-                        #print('VALID IMAGES:')
-                        #for img in image_urls_valid: print (img)
+                        print('VALID IMAGES:')
+                        for img in image_urls_valid: print (img)
                     except:
                         print(traceback.format_exc())
                 #MAYBE GET NEWDOMAIN HERE?
