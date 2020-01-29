@@ -143,10 +143,10 @@ def doesscrapeurlexist(scrapesitelist, scrapeurl):
 # *** --- Get value from JSON file by selector --- *** #
 def getvalbyjsonselector(selectorial, dictorial):
     try:
-        #print(selectorial)
+        print(selectorial)
         value = []
         selectorial = selectorial.split('>>>')
-        for sel in selectorial: print('SEL ELEMENT:' + sel)
+        #for sel in selectorial: print('SEL ELEMENT:' + sel)
         #print('LENGTH OF SELECTOR: ' + str(len(selectorial)))
         if len(selectorial) == 1:
             if selectorial[0] == '[i]':
