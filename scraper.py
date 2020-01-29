@@ -341,7 +341,9 @@ for scrapsite in jsonscrapsites:
                 # --> then make sure to stop importing the products from the current URL when
                 # --> we come across a product not previously stored in the database!
                 if scrapsite['scrapefield']['productlatestonly'] == '1':
+                    print(scrapsite['scrapefield']['productlatestonly'])
                     existingtable = scraperwiki.sql.table_info('exisprodcache')
+                    print(existingtable)
                     if not existingtable:
                         while jsonprodexists:
                             count = 1
