@@ -295,8 +295,8 @@ for scrapsite in jsonscrapsites:
             scrapsite['scrapefield']['productselector'] = scrapsite['scrapefield']['productselector'].encode().decode("unicode-escape")
             product_elements =  getvalbyjsonselector(scrapsite['scrapefield']['productselector'], jsonmain)
             for prod_key, prod_el in product_elements.items():
-                print('PRODUCT COUNT: ' + str(len(product_elements.items())))
-                print('PRODUCT KEY: ' + str(prod_key))
+                #print('PRODUCT COUNT: ' + str(len(product_elements.items())))
+                #print('PRODUCT KEY: ' + str(prod_key))
                 prod_sold_out = False
                 # >>> GET THE SCRAPED PRODUCT URL <<< #
                 prod_url = ''
@@ -316,7 +316,7 @@ for scrapsite in jsonscrapsites:
                         print('No product URL found. Either broken config or current setup needs change')
                 except:
                     print(traceback.format_exc())
-                print('PROD URL: ' + prod_url)
+                #print('PROD URL: ' + prod_url)
                 # >>> GET THE SCRAPED PRODUCT TITLE <<< #
                 prod_title = ''
                 try:
@@ -335,7 +335,7 @@ for scrapsite in jsonscrapsites:
                         prod_title = re.sub('\s+', ' ', prod_title)
                 except:
                     print(traceback.format_exc())
-                print('PROD TITLE: ' + prod_title)
+                #print('PROD TITLE: ' + prod_title)
                 # >>> CHECK IF LATEST ONLY <<< #
                 # --> If the url should be checked for the latest products only(No full import),
                 # --> then make sure to stop importing the products from the current URL when
@@ -414,7 +414,7 @@ for scrapsite in jsonscrapsites:
                     #print('FINALPRICE:' + prod_price)
                 except:
                     print(traceback.format_exc())
-                print('FINALPRICE:' + prod_price)
+                #print('FINALPRICE:' + prod_price)
                 # >>> GET THE SALES PRICE <<< #
                 prod_salesprice_elements = ''
                 prod_salesprice = ''
@@ -437,7 +437,7 @@ for scrapsite in jsonscrapsites:
                             prod_salesprice = prod_salesprice.replace('\,', '')
                     except:
                         print(traceback.format_exc())
-                print('FINALSALESPRICE:' + prod_salesprice)
+                #print('FINALSALESPRICE:' + prod_salesprice)
                 # >>> CHECK IF BRAND IS FOUND IN NAME <<< #
                 prod_brand = ''
                 try:
@@ -450,7 +450,7 @@ for scrapsite in jsonscrapsites:
                             break
                 except:
                     print(traceback.format_exc())            
-                print('PREV_BRAND: ' + prod_brand)
+                #print('PREV_BRAND: ' + prod_brand)
                 # >>> CHECK IF DOMAIN NAME SHOULD BE USED AS PROD. BRAND <<< #
                 if scrapsite['scrapefield']['domainname']:
                     try:
@@ -566,8 +566,8 @@ for scrapsite in jsonscrapsites:
                                 else:
                                     domainmisc_array[i] = str(domainmisc_array[i])
                         scrapedmiscitems = json.dumps(domainmisc_array)
-                        print('DOMAINMISC:')
-                        for d in domainmisc_array: print(d)
+                        #print('DOMAINMISC:')
+                        #for d in domainmisc_array: print(d)
                     except:
                         print(traceback.format_exc())
                 # >>> GET THE PRODUCT LOGO URL(S) - IF SUCH EXISTS <<< #
@@ -597,8 +597,8 @@ for scrapsite in jsonscrapsites:
                             productlogourls = prodlog_image_urls
                         else:
                             print("No product logo URLs could be found for product with title " + prod_title + "!")
-                        print('PRODUCTLOGOS:')
-                        for p in prodlog_image_urls: print(p)
+                        #print('PRODUCTLOGOS:')
+                        #for p in prodlog_image_urls: print(p)
                         #print('PRODUCTLOGOURL:' + productlogourl)
                     except:
                         print(traceback.format_exc())
@@ -644,8 +644,8 @@ for scrapsite in jsonscrapsites:
                         #for img in image_elements: print (img)
                         #print('IMAGE URLS:')
                         #for img in image_urls: print (img)
-                        print('VALID IMAGES:')
-                        for img in image_urls_valid: print (img)
+                        #print('VALID IMAGES:')
+                        #for img in image_urls_valid: print (img)
                     except:
                         print(traceback.format_exc())
                 #MAYBE GET NEWDOMAIN HERE?
