@@ -294,7 +294,7 @@ for scrapsite in jsonscrapsites:
             # >>> GET THE PRODUCTS <<< #
             scrapsite['scrapefield']['productselector'] = scrapsite['scrapefield']['productselector'].encode().decode("unicode-escape")
             product_elements =  getvalbyjsonselector(scrapsite['scrapefield']['productselector'], jsonmain)
-            for prod_el in product_elements:
+            for prod_key, prod_el in product_elements.items():
                 prod_sold_out = False
                 # >>> GET THE SCRAPED PRODUCT URL <<< #
                 prod_url = ''
