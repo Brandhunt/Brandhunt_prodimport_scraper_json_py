@@ -383,7 +383,7 @@ for scrapsite in jsonscrapsites:
                     if product_search_result:
                         print("Found product already existing, moving onto next product!");
                         continue
-                print('WESHOULDBEHERE')
+                #print('WESHOULDBEHERE')
                 # >>> GET THE PRICE <<< #
                 prod_price_elements = ''
                 prod_price = ''
@@ -401,7 +401,7 @@ for scrapsite in jsonscrapsites:
                         if prod_price is not None:
                             if any(char.isdigit() for char in prod_price):
                                 prod_price = re.sub(r'([^a-zA-Z]\w+\%+)', '', prod_price)
-                                break
+                                #break
                             else:
                                 prod_price = '-1'
                         else:
