@@ -611,7 +611,10 @@ for scrapsite in jsonscrapsites:
                     try:
                         scrapsite['scrapefield']['imageselector'] = scrapsite['scrapefield']['imageselector'].encode().decode("unicode-escape")
                         image_elements = getvalbyjsonselector(scrapsite['scrapefield']['imageselector'], prod_el)
-                        image_urls = image_elements
+                        if type(image_elements) == list:
+                            image_urls = { i : image_elements[i] for i in range(0, len(image_elements) ) }
+                        else:
+                            image_urls = image_elements
                         #print('PRE-IMAGE URLS: ')
                         #for img in image_urls: print(image_urls[img])
                         if len(image_urls) > 0:
